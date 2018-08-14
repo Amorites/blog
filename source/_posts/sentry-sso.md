@@ -14,11 +14,11 @@ tags:
 
 查了一些官方关于这些的回复： 
 
-- ![cas](https://github.com/getsentry/sentry/issues/3854)
+- [cas](https://github.com/getsentry/sentry/issues/3854)
 
 It's very possible it won't work.可能需要改源码.
 
-- ![OAuth](https://docs.sentry.io/server/sso/)
+- [OAuth](https://docs.sentry.io/server/sso/)
 
 有两个官方维护的 Provider，支持了github和google。查了查还有个人维护的gitlab的版本,想接入公司的应该需要参考这些自己实现一个。
 
@@ -28,7 +28,7 @@ It's very possible it won't work.可能需要改源码.
 
 不太稳定还有点麻烦的感觉，如果有其他的办法还是尽量避免。
 
-- ![SAML2](https://docs.sentry.io/learn/sso/)
+- [SAML2](https://docs.sentry.io/learn/sso/)
 
 除了支持几个SASS服务外，还有一个 generic provider，提供一个配置界面，看来这就是我们需要的。
 
@@ -36,9 +36,9 @@ It's very possible it won't work.可能需要改源码.
 
 ## 实现
 
-首先参考插件![sentry-auth-saml2](https://github.com/getsentry/sentry-auth-saml2)的文档，知道大概的流程是添加这个插件然后重启服务就可以了。
+首先参考插件[sentry-auth-saml2](https://github.com/getsentry/sentry-auth-saml2)的文档，知道大概的流程是添加这个插件然后重启服务就可以了。
 
-整个服务是使用![sentry onpremise](https://github.com/getsentry/onpremise)搭建的，按理来说把插件的地址加入到requirements.txt就可以了。但实际上在build的时候会提示缺少依赖，google了一下，貌似是无法被pip直接安装的东西，需要用apt-get先手动安装，于是把pip install直接写在了Dockerfile里面。
+整个服务是使用[sentry onpremise](https://github.com/getsentry/onpremise)搭建的，按理来说把插件的地址加入到requirements.txt就可以了。但实际上在build的时候会提示缺少依赖，google了一下，貌似是无法被pip直接安装的东西，需要用apt-get先手动安装，于是把pip install直接写在了Dockerfile里面。
 
 总结下来就是以下几步：
 
