@@ -4,7 +4,10 @@ language: node_js
 
 node_js: stable
 
-install: npm install
+install: 
+  - npm install
+  - git submodule init
+  - git submodule update
 
 cache:
   directories:
