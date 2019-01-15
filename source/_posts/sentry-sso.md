@@ -56,3 +56,8 @@ docker-compose up -d # Recreate the services
 
 完成之后，在orgnazition setting - auth下就出现了配置saml2的按钮。
 
+## 配置
+
+重启服务之后可以看见sentry网站上的auth可用了，但是在配置的时候又遇到了问题。
+
+需要利用[工具](https://www.samltool.com/sp_metadata.php)先生成一份配置给cas，cas配置好，最后在sentry里填好 cas 的信息就大功告成了。
